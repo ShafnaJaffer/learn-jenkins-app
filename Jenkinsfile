@@ -87,6 +87,11 @@ pipeline {
                                 '''
                             }
                         }
+        stage ('Approval') {
+        steps {
+           input message: 'Ready for Deploy', ok: 'Yea Im ready to deploy'
+           }
+           }
         stage('Deploy to prod') {
                     agent {
                     docker {
